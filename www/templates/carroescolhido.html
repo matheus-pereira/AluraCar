@@ -3,14 +3,25 @@
     <ion-content>
         <div class="card">
             <div class="item item-divider">
-                Ótima Escolha
+                {{carroEscolhido.nome}}
             </div>
             <div class="item item-text-wrap">
-                {{carroEscolhido}}
+                <ul class="list">
+                    <li class="item item-toggle" ng-repeat="acessorio in listaDeAcessorios">
+                        {{acessorio.nome}} - R{{acessorio.preco | currency}}
+                        <label class="toggle toggle-balanced">
+                            <input type="checkbox" ng-model="isMarcado" ng-click="mudou(acessorio, isMarcado)">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </li>
+                </ul>
             </div>
             <div class="item item-divider">
-                R$ 50.000
+                R{{carroEscolhido.preco | currency}}
             </div>
         </div>
+        <a href="#/finalizarpedido/{{carroEscolhido}}" class="button button-positive button-full">Finalizar pedido</a>
     </ion-content>
 </ion-view>

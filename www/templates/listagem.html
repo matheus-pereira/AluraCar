@@ -3,7 +3,8 @@
     <ion-content>
         <ion-list>
             <ion-item ng-repeat="carro in listaDeCarros" href="#/carroescolhido/{{carro}}">
-                {{carro}}
+                {{carro.nome}}
+                <span class="item-note">R{{carro.preco | currency}}</span>
             </ion-item>
         </ion-list>
     </ion-content>
