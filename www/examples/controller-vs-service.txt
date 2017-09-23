@@ -1,0 +1,5 @@
+Os dois são componentes do AngularJS, porém com finalidades diferentes.
+O controller geralmente é usado para receber os dados vindos da tela e repassá-los para o service,
+que tem a função de fazer a regra de negócio.
+Nada impede que você tenha a lógica da regra de negócio no controller, por exemplo.
+Mas o padrão de projeto lhe sugere separar, e foi o que fizemos nesse capítulo.

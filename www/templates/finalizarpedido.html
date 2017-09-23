@@ -10,19 +10,19 @@
                 <div class="list">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Nome Completo</span>
-                        <input type="text">
+                        <input type="text" ng-model="pedido.nome">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Endereço</span>
-                        <input type="text">
+                        <input type="text" ng-model="pedido.endereco">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">E-mail</span>
-                        <input type="text">
+                        <input type="text" ng-model="pedido.email">
                     </label>
                 </div>
             </div>
         </div>
-        <a class="button button-positive button-full">Realizar um sonho</a>
+        <a class="button button-positive button-full" ng-click="finalizarPedido()">Realizar um sonho</a>
     </ion-content>
 </ion-view>
