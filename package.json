@@ -16,5 +16,8 @@
     "cordova-plugin-splashscreen",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [],
+  "dependencies": {
+    "angular-br-filters": "^0.7.0"
+  }
 }

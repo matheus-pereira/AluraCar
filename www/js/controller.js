@@ -1,13 +1,13 @@
 angular.module('starter')
-
 .controller('ListagemController', function($scope, CarroService){
     
     CarroService.obterCarros().then(function(dados){
         $scope.listaDeCarros = dados;
     });
 
-})
+});
 
+angular.module('starter')
 .controller('CarroEscolhidoController', function($scope, $stateParams){
     
     $scope.carroEscolhido = angular.fromJson($stateParams.carro);
@@ -26,8 +26,9 @@ angular.module('starter')
         }
     };
 
-})
+});
 
+angular.module('starter')
 .controller('FinalizarPedidoController', function($scope, $stateParams, $ionicPopup, $state, CarroService){
     
     $scope.carroFinalizado = angular.fromJson($stateParams.carro);
@@ -50,7 +51,7 @@ angular.module('starter')
                 title: 'Parabéns',
                 template: 'Você acaba de comprar um carro.'
             }).then(function(){
-                $state.go('listagem');
+                $state.go('app.listagem');
             });
         }, function(erro){
             $ionicPopup.alert({
@@ -60,4 +61,66 @@ angular.module('starter')
         });
 
     };
+});
+
+angular.module('starter')
+.controller('LoginController', function($scope, CarroService, $ionicPopup, $state, $rootScope){
+    
+    $scope.login = {};
+    
+    $scope.realizarLogin = function(){
+        
+        var dadosDoLogin = {
+            params : {
+                email: 'joao@alura.com.br', // $scope.login.email,
+                senha: 'alura123' // $scope.login.senha
+            }
+        };
+
+        CarroService.realizarLogin(dadosDoLogin).then(function(response){
+            if (response.status === 200){
+                $ionicPopup.alert({
+                    title: 'Seja bem-vindo',
+                    template: 'Login efetuado com sucesso.'
+                });
+                var dados = response.data;
+                $rootScope.usuario = dados.usuario;
+                $state.go('app.listagem');
+            }
+        }, function(erro){
+            $ionicPopup.alert({
+                title: 'Opa!',
+                template: 'E-mail ou senha incorretos.'
+            });
+        });
+
+    }
+
+});
+
+angular.module('starter')
+.controller('MenuController', function($scope, $rootScope){
+
+    $scope.usuarioLogado = $rootScope.usuario;
+
+});
+
+angular.module('starter')
+.controller('PerfilController', function($rootScope, $scope){
+
+    $scope.estaEditando = false;
+    $scope.textoBotao = 'Editar';
+
+    $scope.acaoBotao = function(){
+        if($scope.estaEditando){
+            $scope.estaEditando = false;
+            $scope.textoBotao = 'Editar'
+        } else {
+            $scope.estaEditando = true;
+            $scope.textoBotao = 'Salvar';
+        }
+    }
+    
+    $scope.usuarioLogado = $rootScope.usuario;
+
 });
