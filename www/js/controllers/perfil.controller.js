@@ -20,8 +20,8 @@ angular.module('starter')
 
         var opcoes = {
             quality: 70,
-            cameraDirection: 1,
-            correctOrientation: true
+            correctOrientation: true,
+            cameraDirection: 1
         }
 
         $cordovaCamera.getPicture(opcoes).then(function(foto){

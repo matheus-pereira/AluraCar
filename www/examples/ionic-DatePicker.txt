@@ -1,0 +1,11 @@
+install bower:
+npm install -g bower
+
+install ionic-datepicker plugin:
+bower install ionic-datepicker --save
+
+import into index.html:
+<script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+
+add dependence in controller:
+angular.module('moduleName', ['ionic', 'ionic-datepicker']){}

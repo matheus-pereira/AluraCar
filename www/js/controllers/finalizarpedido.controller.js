@@ -1,9 +1,18 @@
 angular.module('starter')
-.controller('FinalizarPedidoController', function($scope, $stateParams, $ionicPopup, $state, CarroService, $ionicHistory){
+.controller('FinalizarPedidoController', function($scope, $stateParams, $ionicPopup, $state, CarroService, $ionicHistory, ionicDatePicker){
     
     $scope.carroFinalizado = angular.fromJson($stateParams.carro);
 
     $scope.pedido = {};
+
+    $scope.abrirPopupCalendario = function(){
+        var configuracoes = {
+            callback: function(data){
+                $scope.pedido.dataAgendamento = new Date(data);
+            }
+        }
+        ionicDatePicker.openDatePicker(configuracoes);
+    }
 
     $scope.finalizarPedido = function(){
         var pedidoFinalizado = {
