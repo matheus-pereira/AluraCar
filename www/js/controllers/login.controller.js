@@ -1,5 +1,5 @@
 angular.module('starter')
-.controller('LoginController', function($scope, CarroService, $ionicPopup, $state, $rootScope, $ionicHistory){
+.controller('LoginController', function($scope, CarroService, $ionicPopup, $state, $rootScope, $ionicHistory, DatabaseValues){
     
     $scope.login = {};
     
@@ -15,6 +15,14 @@ angular.module('starter')
         CarroService.realizarLogin(dadosDoLogin).then(function(response){
             if (response.status === 200){
 
+                var dados = response.data;
+                $rootScope.usuario = dados.usuario;
+
+                DatabaseValues.setup();
+                DatabaseValues.bancoDeDados.transaction(function(transacao){
+                    transacao.executeSql('INSERT INTO usuarios(nome,email) VALUES (?, ?)', [$rootScope.usuario.nome, $rootScope.usuario.email]);
+                });
+
                 $ionicHistory.nextViewOptions({
                     disableBack: true
                 })
@@ -23,9 +31,6 @@ angular.module('starter')
                     title: 'Seja bem-vindo',
                     template: 'Login efetuado com sucesso.'
                 });
-
-                var dados = response.data;
-                $rootScope.usuario = dados.usuario;
                 
                 $state.go('app.listagem');
                 
