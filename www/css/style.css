@@ -18,3 +18,7 @@
     border-color: #387ef5;
 }
 /* /ionicDatePicker */
+
+.falha {
+    color: red;
+}
