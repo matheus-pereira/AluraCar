@@ -22,3 +22,7 @@
 .falha {
     color: red;
 }
+
+.item.item-input.item-stacked-label .input-label {
+    width: 100%;
+}

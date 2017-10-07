@@ -35,7 +35,7 @@ angular.module('starter')
 
             $ionicPopup.alert({
                 title: 'Parabéns',
-                template: 'Você acaba de comprar um carro.'
+                template: 'Agendamento realizado com sucesso.'
             }).then(function(){
                 $state.go('app.listagem');
             });
@@ -43,10 +43,17 @@ angular.module('starter')
 
             $scope.salvarDadosNoBancoDeDados('false');
 
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            })
+
             $ionicPopup.alert({
                 title: 'Ops!',
                 template: 'Servidor com problemas. Tente mais tarde.'
             }).then(function(){
+                $ionicHistory.nextViewOptions({
+                    disableBack: true
+                })
                 $state.go('app.listagem');
             });
 

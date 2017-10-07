@@ -14,7 +14,7 @@
                     </label>
                     <label class="item item-input">
                         <span ng-show="!estaEditando" class="input-label">{{usuarioLogado.telefone | brPhoneNumber}}</span>
-                        <input ng-show="estaEditando" type="text" ng-model="usuarioLogado.telefone">
+                        <input ng-show="estaEditando" type="tel" ng-model="usuarioLogado.telefone">
                     </label>
                     <label class="item item-input">
                         <span ng-show="!estaEditando" class="input-label">{{usuarioLogado.email}}</span>
