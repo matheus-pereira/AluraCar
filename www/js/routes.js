@@ -54,8 +54,7 @@ angular.module('starter')
     .state('login', {
         url: '/login',
         templateUrl: 'templates/login.html',
-        controller: 'LoginController',
-        cache: false
+        controller: 'LoginController'
     })
 
     .state('app.agendamentos',{
