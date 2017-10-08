@@ -7,8 +7,8 @@ angular.module('starter')
         
         var dadosDoLogin = {
             params : {
-                email: $scope.login.email, // 'joao@alura.com.br'
-                senha: $scope.login.senha // 'alura123'
+                email: 'joao@alura.com.br', // $scope.login.email
+                senha: 'alura123' // $scope.login.senha
             }
         };
 

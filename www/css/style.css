@@ -26,3 +26,13 @@
 .item.item-input.item-stacked-label .input-label {
     width: 100%;
 }
+
+.platform-android .action-sheet .action-sheet-title, .platform-android .action-sheet .button {
+    text-align: center;
+}
+
+.action-sheet-title,
+.platform-android .action-sheet .action-sheet-title {
+    color: #fff;
+    background-color: #387ef5;
+}
